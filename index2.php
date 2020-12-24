@@ -7,21 +7,11 @@ include("head.php");
 include("connect.php");
 ?>
 <body class="hold-transition skin-blue layout-top-nav sidebar-collapse">
-
 <?php
-
 include_once("auth.php");
-
 $r=$_SESSION['SESS_LAST_NAME'];
-
-
-
 if($r =='Cashier'){
-
-
-
 include_once("sidebar2.php");
-
 }
 
 if($r =='admin'){
@@ -331,6 +321,7 @@ else{
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
+            <a href="sales_rp.php?d1=<?php echo date('Y-m-d'); ?>&d2=<?php echo date('Y-m-d'); ?>">
             <div class="widget-user-header bg-red">
               <div class="widget-user-image">
 
@@ -338,7 +329,7 @@ else{
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username">Negombo Branch</h3>
               <h5 class="widget-user-desc">YAMAHA</h5>
-            </div>
+            </div></a>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
                 <li><a href="#">Sales <span class="pull-right badge bg-blue">Rs.<?php echo $amount; ?></span></a></li>
