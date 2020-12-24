@@ -6,7 +6,7 @@
 include("head.php");
 include("connect.php");
 ?>
-<body class="hold-transition skin-blue layout-top-nav">
+<body class="hold-transition skin-blue layout-top-nav sidebar-mini">
 
 <?php
 
