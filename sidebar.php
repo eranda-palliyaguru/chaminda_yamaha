@@ -45,7 +45,7 @@
 
       <div class="navbar-custom-menu">
         <div class="navbar-header">
-          <a href="index.php" class="navbar-brand"><b>CLOUD Arm</b>LTE</a>
+          <a href="index.php" class="navbar-brand"><b>CLOUD </b>ARM</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -284,35 +284,10 @@
             </span>
           </a>
         </li>
-		  <li class="treeview">
-          <a href="#">
-            <i class="fa fa-group"></i> <span>Customer</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-           </span>
-        </a>
-          <ul class="treeview-menu">
-            <li><a href="cus.php"><i class="fa fa-circle-o text-yellow"></i> Add customer</a></li>
-            <li><a href="cus_view.php"><i class="fa fa-circle-o text-aqua"></i> View customer</a></li>
-          </ul>
-        </li>
-		   <li>
-          <a  href="lone.php">
-            <i class="fa fa-dashboard"></i> <span>New Lone</span>
-            <span class="pull-right-container">
 
-            </span>
-          </a>
-        </li>
 
-	<li>
-          <a  href="terms2.php">
-            <i class="fa fa-dashboard"></i> <span>Lone Payment</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
+        <li><a href="sales_rp.php?d1=<?php echo date("Y-m-d");?>&d2=<?php echo date("Y-m-d");?>"><i class="fa fa-circle-o text-yellow"></i> Sales Report for Negombo</a></li>
+        <li><a href="sales_rp2.php?d1=<?php echo date("Y-m-d");?>&d2=<?php echo date("Y-m-d");?>"><i class="fa fa-circle-o text-yellow"></i> Sales Report for Minuwangoda</a></li>
 
 
 
