@@ -346,14 +346,14 @@ else{
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user-2">
             <!-- Add the bg color to the header using any of the bg-* classes -->
+            <a href="sales_rp2.php?d1=<?php echo date('Y-m-d'); ?>&d2=<?php echo date('Y-m-d'); ?>">
             <div class="widget-user-header bg-red">
               <div class="widget-user-image">
-
               </div>
               <!-- /.widget-user-image -->
               <h3 class="widget-user-username">Minuwangoda Branch</h3>
               <h5 class="widget-user-desc">YAMAHA</h5>
-            </div>
+            </div></a>
             <div class="box-footer no-padding">
               <ul class="nav nav-stacked">
                 <li><a href="#">Sales <span class="pull-right badge bg-blue">Rs.<?php echo $amount2; ?></span></a></li>
