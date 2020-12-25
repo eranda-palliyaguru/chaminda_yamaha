@@ -22,7 +22,7 @@
 </head>
 <body >
 <?php
-include("connect2.php");
+include("connect.php");
 $sec = "100000000";
 ?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales1.php'">
 <div class="wrapper">
@@ -30,7 +30,7 @@ $sec = "100000000";
   <section class="invoice">
 
 
-  <a href="sales_rp.php" class="btn btn-primary btn-xs"><h1>Back</h1></a>  
+  <a href="sales_rp.php" class="btn btn-primary btn-xs"><h1>Back</h1></a>
     <!-- title row -->
     <div class="row">
         <!-- accepted payments column -->
