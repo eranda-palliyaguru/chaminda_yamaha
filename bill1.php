@@ -20,10 +20,10 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body onload="window.print() " style=" font-size: 13px; font-family: arial;">
+<body >
 <?php
-$sec = "1";
-?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales1.php'">	
+$sec = "100000000";
+?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales1.php'">
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
@@ -34,7 +34,7 @@ $sec = "1";
         <h2 class="page-header">
           <i class="fa fa-globe"></i> Chaminda Motors.
           <small class="pull-right">
-			  Date:<?php date_default_timezone_set("Asia/Colombo"); 
+			  Date:<?php date_default_timezone_set("Asia/Colombo");
     echo date("Y-m-d"); echo "  Time-";  echo date("h:ia")  ?></small>
         </h2>
       </div>
@@ -86,14 +86,14 @@ $sec = "1";
                 </tfoot>
               </table>
 	<?php
-				$result1 = $db->prepare("SELECT * FROM sales WHERE   invoice_number='$invo'  ");		
+				$result1 = $db->prepare("SELECT * FROM sales WHERE   invoice_number='$invo'  ");
 					$result1->bindParam(':userid', $date);
                 $result1->execute();
                 for($i=0; $row1 = $result1->fetch(); $i++){
 				//$tot_amount=$row1['amount'];
 					$balance=$row1['balance'];
 				}
-			?>  
+			?>
 	<div class="col-xs-6">
           <p class="lead">Amount</p>
           <div class="table-responsive">
@@ -119,4 +119,3 @@ $sec = "1";
 </div>
 </body>
 </html>
-

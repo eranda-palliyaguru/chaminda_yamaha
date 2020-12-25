@@ -129,7 +129,7 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
 
 			?>
                 <tr>
-				  <td><?php echo $row['date'];?><a href="bill.php?id=<?php echo $id;?>" class="btn btn-primary btn-xs"><b>Print</b></a></td>
+				  <td><?php echo $row['date'];?></td>
 
 				  <td><?php echo $row['vehicle_no'];?></td>
                   <td><?php echo $row['customer_name'];?></td>
@@ -139,7 +139,7 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
 				  <td><?php echo $row['labor_cost'];?></td>
                   <td><?php echo $row['amount']-$row['labor_cost'];?></td>
                   <td><?php echo $row['amount'];?></td>
-				  <td><a href="bill.php?id=<?php echo $id;?>" class="btn btn-primary btn-xs"><b>Print</b></a></td>
+				  <td><a href="bill1.php?id=<?php echo $id;?>" class="btn btn-primary btn-xs"><b>Print</b></a></td>
 
 
 				   <?php
@@ -156,9 +156,6 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
 
 
 				<tr>
-					<th></th>
-                  <th></th>
-					<th></th>
 					<th>Total </th>
 
 					<th>F/S</th>
