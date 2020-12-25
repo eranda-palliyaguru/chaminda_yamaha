@@ -22,35 +22,106 @@
 </head>
 <body >
 <?php
+include("connect2.php");
 $sec = "100000000";
 ?><meta http-equiv="refresh" content="<?php echo $sec;?>;URL='sales1.php'">
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
+
+
+  <a href="sales_rp.php" class="btn btn-primary btn-xs"><h1>Back</h1></a>  
     <!-- title row -->
     <div class="row">
-		<small class="pull-right"><img src="honda.png" width="120" alt="">......</small>
-      <div class="col-xs-12">
-        <h2 class="page-header">
-          <i class="fa fa-globe"></i> Chaminda Motors.
-          <small class="pull-right">
-			  Date:<?php date_default_timezone_set("Asia/Colombo");
-    echo date("Y-m-d"); echo "  Time-";  echo date("h:ia")  ?></small>
-        </h2>
-      </div>
-      <!-- /.col -->
-    </div>
-    <!-- info row -->
-    <div class="row invoice-info">
-      <div class="col-sm-4 invoice-col">
-        <address>
-          <strong></strong><br>
-          <?php
-		  include("connect.php");
-			?><br><br>
-        </address>
-      </div>
-    </div>
+        <!-- accepted payments column -->
+        <div class="col-xs-6">
+           <h3>CHAMINDA MOTORS.</h3>
+	  <p>NO.196/A,Weyangoda Rd,Minuwangaoda. <br>
+	  Authorized Dealer For Yamaha <br>
+	  	  BR no- .wy/8940 <br>
+	  	  <b>Invoice no.<?php echo $_GET['id']; ?> </b><br>
+	<h5><b>Tel: 011-2283245 </b><br><b>Mobile: 077-3301106 </b><br>
+		  Date:<?php date_default_timezone_set("Asia/Colombo");
+    echo date("Y-m-d"); echo "  Time-";  echo date("h:ia")  ?>
+			</h5></p>
+
+        </div>
+        <!-- /.col -->
+
+
+
+
+        <div class="col-xs-6">
+          <small class="pull-right"><img src="yamaha.png" width="200" alt="">
+        </div> <h5>
+		  <?php if ($co=="qt"){
+		 echo $_GET['vehicle_no'];
+	}
+		  if ($co>0){
+
+			   $invo=$_GET['id'];
+				$result = $db->prepare("SELECT * FROM sales WHERE   invoice_number='$invo'");
+				$result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+				echo "<b>Vehicle No: </b>".$row['vehicle_no']."...";
+					echo "<br>";
+					echo "<b>Mileage: </b>".$kmm=$row['km']."Km";
+					echo "<br>";
+					echo "<b>Next service: </b>".$kmt=$kmm+2000 ."Km....";
+					echo "<br>";
+
+
+					echo "<br></h6></b>";
+				}
+			  }  if ($co=="ds"){
+
+			   $invo=$_GET['id'];
+				$result = $db->prepare("SELECT * FROM sales WHERE   invoice_number='$invo'");
+				$result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+					echo "<b>Vehicle No: </b>".$row['vehicle_no']."...";
+					echo "<br>";
+					echo "<b>Mileage: </b>".$kmm=$row['km']."Km";
+					echo "<br>";
+					echo "<b>Next service: </b>".$kmt=$kmm+2000 ."Km....";
+					echo "<br>";
+
+				echo "<b>Model: </b>".$row['model'];
+					echo "<br></h6></b>";
+				}
+			   } ?>
+			..</h5></small>
+        <!-- /.col -->
+		  <div class="col-xs-4">
+          <h3>
+		  <?php if ($co=="qt"){
+		echo "Quotations";
+	}
+		  if ($co>0){
+
+			  echo "Final Bill";
+
+			  }  if ($co=="ds"){
+
+			  echo "Final Bill";
+			   }
+
+			  $invo=$_GET['id'];
+					$tot_amount=0;
+				$result = $db->prepare("SELECT sum(dic) FROM sales_list WHERE   invoice_no='$invo'");
+					$result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+				$dis_tot=$row['sum(dic)'];
+				}
+
+
+			  ?>
+			  </h3>
+      </div></div>
+
 <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
