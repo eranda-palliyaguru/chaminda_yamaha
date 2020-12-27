@@ -51,38 +51,13 @@ include_once("sidebar.php");
         Inventory Report
         <small>Preview</small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">Advanced Elements</li>
-      </ol>
+      
     </section>
 
 
 
 
-     <form action="inventory_rp.php" method="get">
-	<center>
 
-
-
-			<strong>
-
-From :<input type="text" style="width:223px; padding:4px;" name="d1" id="datepicker" value="" autocomplete="off" />
-To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepickerd"  value="" autocomplete="off"/>
-
- <button class="btn btn-info" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" type="submit">
- <i class="icon icon-search icon-large"></i> Search
- </button>
-
-</strong>
-
-		<br>
-
-         <h4> Report from&nbsp;<i class=" text-primary "><?php echo $_GET['d1'] ?></i>&nbsp;to&nbsp;<i class=" text-primary "><?php echo $_GET['d2'] ?> </i>  </h4>
-
-			 </center>
-			 </form>
 
 
 
