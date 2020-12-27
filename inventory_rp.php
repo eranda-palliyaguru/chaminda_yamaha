@@ -102,8 +102,8 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
                   <th>Code</th>
 				  <th>Name</th>
                   <th>Sell QTY</th>
-				  <th>Indian QTY</th>
-					<th>Company QTY</th>
+				  <th>QTY</th>
+
                 </tr>
 
                 </thead>
@@ -140,7 +140,7 @@ if($type==2){include("connect2.php");}
 				  <td><?php echo $row['name'];?></td>
                   <td><?php echo $b;?></td>
                   <td><?php echo $row['qty'];?></td>
-                  <td><?php echo $row['qty_com'];?></td>
+
 <?php }	} ?>
                 </tr>
 
@@ -151,7 +151,7 @@ if($type==2){include("connect2.php");}
                 </tfoot>
               </table>
 				<center>
-				<h3>Total Rs.<?php echo $tot; ?>.00</h3>
+				<h3>Total Rs.<?php // echo $tot; ?>.00</h3>
       </center>
             </div>
             <!-- /.box-body -->
