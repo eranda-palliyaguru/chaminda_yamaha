@@ -241,9 +241,9 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
 
 
             </div>
-		 <a href="sales_rp_print.php?d1=<?php echo $_GET['d1']; ?>&d2=<?php echo $_GET['d2']; ?>"><button class="btn btn-info" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" >
- <i class="icon icon-search icon-large"></i> print
- </button></a>
+            <a href="inventory_rp.php?d1=<?php echo $_GET['d1']; ?>&d2=<?php echo $_GET['d2']; ?>&type=2"><button class="btn btn-info" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" >
+        <i class="icon icon-search icon-large"></i> Sell Product
+        </button></a>
             <!-- /.box-body -->
           </div>
 
