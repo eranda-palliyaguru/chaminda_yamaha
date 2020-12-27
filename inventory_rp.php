@@ -129,6 +129,7 @@ if($type==2){include("connect2.php");}
 	$result->execute();
 		for($i=0; $row1 = $result->fetch(); $i++){
             $b = $row1['count(id)'];
+          }
 
 		if($b==0){}else{
 
@@ -140,7 +141,7 @@ if($type==2){include("connect2.php");}
                   <td><?php echo $b;?></td>
                   <td><?php echo $row['qty'];?></td>
                   <td><?php echo $row['qty_com'];?></td>
-<?php }}	} ?>
+<?php }	} ?>
                 </tr>
 
 
