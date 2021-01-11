@@ -248,6 +248,10 @@ To:<input type="text" style="width:223px; padding:4px;" name="d2" id="datepicker
         <a href="stock.php?type=2"><button class="btn btn-info" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" >
     <i class="icon icon-search icon-large"></i> STOCK
     </button></a>
+
+    <a href="transfer.php?type=2"><button class="btn btn-info" style="width: 123px; height:35px; margin-top:-8px;margin-left:8px;" >
+<i class="icon icon-search icon-large"></i> Transfer
+</button></a>
             <!-- /.box-body -->
           </div>
 
