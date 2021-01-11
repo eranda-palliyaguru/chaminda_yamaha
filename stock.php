@@ -2,17 +2,25 @@
 
 <html>
 
-<?php 
+<?php
 
 include("head.php");
 
+$type=$_GET['type'];
+
+if ($type==1) {
 include("connect.php");
+}else {
+  include("connect2.php");
+}
+
+//include("connect.php");
 
 ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
 
-<?php 
+<?php
 
 include_once("auth.php");
 
@@ -58,7 +66,7 @@ include_once("sidebar.php");
 
  <script type="text/javascript">
 
-     
+
 
 		 $(function(){
 
@@ -66,7 +74,7 @@ include_once("sidebar.php");
 
         $("#datepicker2").datepicker({ dateFormat: 'yy/mm/dd' });
 
-       
+
 
     });
 
@@ -108,23 +116,23 @@ include_once("sidebar.php");
 
     </section>
 
-   
 
-   
 
-   
 
-   
 
-   
 
-   
 
-   
+
+
+
+
+
+
+
 
    <section class="content">
 
-   
+
 
      <div class="box box-success">
 
@@ -132,19 +140,19 @@ include_once("sidebar.php");
 
               <h3 class="box-title">STOCK Data</h3>
 
-		
+
 
             </div>
 
             <!-- /.box-header -->
 
-			
+
 
             <div class="box-body">
 
               <table id="example1" class="table table-bordered table-striped">
 
-			  
+
 
                 <thead>
 
@@ -158,25 +166,25 @@ include_once("sidebar.php");
 
 				  <th>qty</th>
                   <th>Re Order</th>
-				
 
-				  
+
+
 
 				  <th>#</th>
 
                 </tr>
 
-				
+
 
                 </thead>
 
-				
+
 
                 <tbody>
 
 				<?php
 
-   
+
 
    $result = $db->prepare("SELECT * FROM product ORDER by product_id ASC  ");
 
@@ -184,7 +192,7 @@ include_once("sidebar.php");
 
                 $result->execute();
 
-                for($i=0; $row = $result->fetch(); $i++){	
+                for($i=0; $row = $result->fetch(); $i++){
 
 			?>
 
@@ -194,29 +202,29 @@ include_once("sidebar.php");
 
 			      <td><?php echo $row['code'];?></td>
 
-                  <td><?php echo $row['name'];?></td>  
+                  <td><?php echo $row['name'];?></td>
 
 				  <td><?php echo $row['qty'];?></td>
 
 				  <td><?php echo $row['re_order'];?></td>
 
-				 
 
-                  
+
+
 
                   <td>
 
-				  
+
 
 				  <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click to Delete" >
 
 				  <button class="btn btn-danger"><i class="icon-trash">x</i></button></a></td>
 
-				  
 
-				   <?php 
 
-				
+				   <?php
+
+
 
 				}
 
@@ -224,27 +232,27 @@ include_once("sidebar.php");
 
                 </tr>
 
-               
 
-                
+
+
 
                 </tbody>
 
                 <tfoot>
 
-                
 
-				
 
-				
 
-				
 
-				
 
-				
 
-				
+
+
+
+
+
+
+
 
                 </tfoot>
 
@@ -262,19 +270,19 @@ include_once("sidebar.php");
 
         <!-- /.col -->
 
-      
 
-   
 
-   
 
-   
+
+
+
+
 
 
 
     <!-- Main content -->
 
-    
+
 
 
       <!-- /.row -->
@@ -411,7 +419,7 @@ var info = 'id=' + del_id;
 
    success: function(){
 
-   
+
 
    }
 
@@ -442,4 +450,3 @@ return false;
 </body>
 
 </html>
-
