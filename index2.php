@@ -367,10 +367,154 @@ else{
 
 	  </div>
 	<div class="row">
+
+    <div class="col-md-6">
+  <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Today JOB Orders For Negombo</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th >Vehicle No.</th>
+                    <th>Mileage</th>
+                    <th>Time</th>
+            <th>Type</th>
+          <th>Profile</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+            <?php include('connect.php');
+      $result = $db->prepare("SELECT * FROM job WHERE type='active' ORDER by id DESC ");
+        $result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+          $date=$row['date'];
+          $ramp=$row['ramp'];
+
+
+          if($ramp==""){ $color_ramp="yellow"; $info="Waiting"; }
+          if($ramp>0){ $color_ramp="blue"; $info="Ramp No.".$ramp; }
+          if($ramp=="out"){ $color_ramp="green"; $info="Washing"; }
+
+
+
+          $date1=date("Y-m-d");
+          if($date==$date1){
+          $time=$row['time'];
+
+
+      $split = explode(".", $time);
+            $hh = $split[0];
+      $hh1=date("H");
+            $h=$hh1-$hh;
+
+      if($h==0){
+        $split = explode(".", $time);
+          $m = $split[1];
+        $m1= date("i");
+        $time_on=$m1-$m;
+
+      $time_type="minute";
+      }else{
+      $time_on=$h;
+      $time_type="hours";
+      }
+
+
+
+          }else{
+          $sday= strtotime( $date);
+                  $nday= strtotime($date1);
+                  $tdf= abs($nday-$sday);
+                  $nbday1= $tdf/86400;
+                  $time_on= intval($nbday1);
+            $time_type="Day";
+          }
+
+
+          if($time_type=="minute"){ $color="green"; }
+          if($time_type=="Day"){ $color="red";  }
+          if($time_type=="hours"){ $color="blue";
+               if($time_on>4){ $color="yellow"; }	 }
+
+          $vehicle=$row['vehicle_no'];
+          $idi=0;
+          $result1 = $db->prepare("SELECT * FROM customer WHERE vehicle_no='$vehicle'");
+        $result1->bindParam(':userid', $date);
+                $result1->execute();
+                for($i=0; $row1 = $result1->fetch(); $i++){
+        $idi=$row1['customer_id'];
+        }
+
+            ?>
+
+                  <tr>
+                    <td><?php echo $row['vehicle_no'];?></td>
+                    <td><?php echo $row['km'];?></td>
+                    <td><span class="badge bg-<?php echo $color;?>"><i class="fa fa-clock-o"></i> <?php echo $time_on." ".$time_type;?></span></td>
+
+             <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
+
+            <td><?php if($idi>1){ ?>
+              <a href="profile.php?id=<?php echo $idi; ?>" >
+            <button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a>
+              <?php }else{ ?>
+
+              <?php } ?></td>
+
+                  </tr>
+                  <?php }
+            $date=date("Y-m-d");
+            $result = $db->prepare("SELECT * FROM job WHERE type='Close' and date='$date' ORDER by id DESC ");
+        $result->bindParam(':userid', $date);
+                $result->execute();
+                for($i=0; $row = $result->fetch(); $i++){
+
+
+            ?>
+
+            <tr class="alert alert-general record" style="color: #f56954; ">
+                    <td><?php echo $row['vehicle_no'];?></td>
+                    <td><?php echo $row['km'];?></td>
+                    <td><span class="badge bg-green"><i class="fa fa-clock-o"></i> <?php echo $row['type']; ?></span></td>
+
+             <td><span class="badge bg-green"><i class="fa fa-clock-o"></i> <?php echo $row['type']; ?></span></td>
+
+            <td>
+              <a href="profile.php?id=<?php echo $idi; ?>" >
+            <button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
+
+                  </tr>
+                  <?php } ?>
+
+                  </tbody>
+
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+
+            </div>
+
+
+   </div></div>
+
+
+
 		<div class="col-md-6">
  <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Today JOB Orders For Negombo</h3>
+              <h3 class="box-title">Today JOB Orders For Minuwangoda</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -393,7 +537,7 @@ else{
                   </tr>
                   </thead>
                   <tbody>
-					  <?php include('connect.php');
+					  <?php include('connect2.php');
 			$result = $db->prepare("SELECT * FROM job WHERE type='active' ORDER by id DESC ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
