@@ -82,7 +82,7 @@ if($r =='admin'){
 				  <th>From</th>
                   <th>Amount</th>
                   <th>View</th>
-				  <th>#</th>
+				  
                 </tr>
 
                 </thead>
@@ -108,8 +108,7 @@ if($r =='admin'){
                   <td><?php echo $row['customer_name'];?></td>
                   <td><?php echo $row['amount'];?></td>
                   <td><a href="bill.php?id=<?php echo $id;?>" class="btn btn-primary btn-xs"><b>Print</b></a></td>
-				  <td><?php if($type=='2'){ ?>
-					  <a href="tr_stock.php?id=<?php echo $id;?>" class="btn btn-danger btn-xs"><b>IN Stock</b></a><?php }?></td>
+
 
 
 				   <?php

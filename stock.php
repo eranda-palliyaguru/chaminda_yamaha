@@ -18,7 +18,7 @@ include("connect.php");
 
 ?>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green layout-top-nav sidebar-collapse">
 
 <?php
 
@@ -40,7 +40,7 @@ if($r =='admin'){
 
 
 
-//include_once("sidebar.php");
+include_once("sidebar.php");
 
 }
 
@@ -157,20 +157,11 @@ if($r =='admin'){
                 <thead>
 
                 <tr>
-
 				<th>Product_id</th>
-
-					<th>Code</th>
-
-                  <th>Name</th>
-
-				  <th>qty</th>
-                  <th>Re Order</th>
-
-
-
-
-				  <th>#</th>
+				<th>Code</th>
+        <th>Name</th>
+				<th>qty</th>
+        <th>Re Order</th>
 
                 </tr>
 
@@ -208,23 +199,7 @@ if($r =='admin'){
 
 				  <td><?php echo $row['re_order'];?></td>
 
-
-
-
-
-                  <td>
-
-
-
-				  <a href="#" id="<?php echo $row['product_id']; ?>" class="delbutton" title="Click to Delete" >
-
-				  <button class="btn btn-danger"><i class="icon-trash">x</i></button></a></td>
-
-
-
 				   <?php
-
-
 
 				}
 
