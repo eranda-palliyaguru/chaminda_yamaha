@@ -488,9 +488,9 @@ $advance=0;
                   <tr>
                     <td><?php echo $row['vehicle_no'];?></td>
                     <td><?php echo $row['km'];?></td>
+                    <td><span class="badge bg-<?php echo $color;?>"><i class="fa fa-clock-o"></i> <?php echo $time_on." ".$time_type;?></span></td>
                     <td><span class="badge bg-<?php echo $type_color;?>"><i class="fa fa-clock-o"></i> <?php echo $type_info;?></span></td>
 
-             <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
              <td><?php echo $total_bill2; ?></td>
              <td><?php echo $advance; ?></td>
@@ -652,9 +652,10 @@ $total_bill2=0;
                   <tr>
                     <td><?php echo $row['vehicle_no'];?></td>
                     <td><?php echo $row['km'];?></td>
+                    <td><span class="badge bg-<?php echo $color;?>"><i class="fa fa-clock-o"></i> <?php echo $time_on." ".$time_type;?></span></td>
                     <td><span class="badge bg-<?php echo $type_color;?>"><i class="fa fa-clock-o"></i> <?php echo $type_info;?></span></td>
 
-					   <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
+
 
              <td><?php echo $total_bill2; ?></td>
              <td><?php echo $advance; ?></td>
