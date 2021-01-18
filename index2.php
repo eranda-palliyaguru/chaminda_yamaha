@@ -403,13 +403,19 @@ else{
           $now_job_id=$row['id'];
           $date=$row['date'];
           $ramp=$row['ramp'];
-
+	$job_type=$row['job_type'];
 
           if($ramp==""){ $color_ramp="yellow"; $info="Waiting"; }
           if($ramp>0){ $color_ramp="blue"; $info="Ramp No.".$ramp; }
           if($ramp=="out"){ $color_ramp="green"; $info="Washing"; }
 
-
+          if($job_type==1){ $type_color="red"; $type_info="Full Service"; }
+          if($job_type==2){ $type_color="green"; $type_info="1st Free Service"; }
+          if($job_type==7){ $type_color="green"; $type_info="2nd Free Service"; }
+          if($job_type==6){ $type_color="green"; $type_info="Accident"; }
+          if($job_type==3){ $type_color="yellow"; $type_info="Repair"; }
+          if($job_type==4){ $type_color="aqua"; $type_info="Echo Test"; }
+          if($job_type==5){ $type_color="blue"; $type_info="Body Wash"; }
 
           $date1=date("Y-m-d");
           if($date==$date1){
@@ -482,7 +488,7 @@ $advance=0;
                   <tr>
                     <td><?php echo $row['vehicle_no'];?></td>
                     <td><?php echo $row['km'];?></td>
-                    <td><span class="badge bg-<?php echo $color;?>"><i class="fa fa-clock-o"></i> <?php echo $time_on." ".$time_type;?></span></td>
+                    <td><span class="badge bg-<?php echo $type_color;?>"><i class="fa fa-clock-o"></i> <?php echo $type_info;?></span></td>
 
              <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
@@ -561,12 +567,19 @@ $advance=0;
 					$date=$row['date'];
           $now_job_id=$row['id'];
 					$ramp=$row['ramp'];
+          $job_type=$row['job_type'];
 
+                  if($ramp==""){ $color_ramp="yellow"; $info="Waiting"; }
+                  if($ramp>0){ $color_ramp="blue"; $info="Ramp No.".$ramp; }
+                  if($ramp=="out"){ $color_ramp="green"; $info="Washing"; }
 
-					if($ramp==""){ $color_ramp="yellow"; $info="Waiting"; }
-					if($ramp>0){ $color_ramp="blue"; $info="Ramp No.".$ramp; }
-					if($ramp=="out"){ $color_ramp="green"; $info="Washing"; }
-
+                  if($job_type==1){ $type_color="red"; $type_info="Full Service"; }
+                  if($job_type==2){ $type_color="green"; $type_info="1st Free Service"; }
+                  if($job_type==7){ $type_color="green"; $type_info="2nd Free Service"; }
+                  if($job_type==6){ $type_color="green"; $type_info="Accident"; }
+                  if($job_type==3){ $type_color="yellow"; $type_info="Repair"; }
+                  if($job_type==4){ $type_color="aqua"; $type_info="Echo Test"; }
+                  if($job_type==5){ $type_color="blue"; $type_info="Body Wash"; }
 
 
 					$date1=date("Y-m-d");
@@ -639,7 +652,7 @@ $total_bill2=0;
                   <tr>
                     <td><?php echo $row['vehicle_no'];?></td>
                     <td><?php echo $row['km'];?></td>
-                    <td><span class="badge bg-<?php echo $color;?>"><i class="fa fa-clock-o"></i> <?php echo $time_on." ".$time_type;?></span></td>
+                    <td><span class="badge bg-<?php echo $type_color;?>"><i class="fa fa-clock-o"></i> <?php echo $type_info;?></span></td>
 
 					   <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
