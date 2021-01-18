@@ -503,6 +503,27 @@ $advance=0;
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
 
+                  $now_job_id=$row['id'];
+
+                  $advance=0;
+
+                          $resultm = $db->prepare("SELECT * FROM sales WHERE job_no='$now_job_id' ");
+                          $resultm->bindParam(':userid', $res);
+                          $resultm->execute();
+                          for($i=0; $row12 = $resultm->fetch(); $i++){
+                          $invoice_number = $row12['invoice_number'];
+                          $advance = $row12['advance'];
+                          }
+
+                          $total_bill2=0;
+
+                          $resultm = $db->prepare("SELECT sum(price) FROM sales_list WHERE invoice_no='$invoice_number' ");
+                          $resultm->bindParam(':userid', $res);
+                          $resultm->execute();
+                          for($i=0; $row12 = $resultm->fetch(); $i++){
+                          $total_bill2 = $row12['sum(price)'];
+                          }
+
 
             ?>
 
@@ -513,8 +534,8 @@ $advance=0;
 
              <td><span class="badge bg-green"><i class="fa fa-clock-o"></i> <?php echo $row['type']; ?></span></td>
 
-            <td><?php // echo $total_bill2; ?></td>
-            <td><?php // echo $advance; ?></td>
+            <td><?php  echo $total_bill2; ?></td>
+            <td><?php  echo $advance; ?></td>
 
                   </tr>
                   <?php } ?>
@@ -668,6 +689,27 @@ $total_bill2=0;
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
 
+                  $now_job_id=$row['id'];
+
+                  $advance=0;
+
+                          $resultm = $db->prepare("SELECT * FROM sales WHERE job_no='$now_job_id' ");
+                          $resultm->bindParam(':userid', $res);
+                          $resultm->execute();
+                          for($i=0; $row12 = $resultm->fetch(); $i++){
+                          $invoice_number = $row12['invoice_number'];
+                          $advance = $row12['advance'];
+                          }
+
+                          $total_bill2=0;
+
+                          $resultm = $db->prepare("SELECT sum(price) FROM sales_list WHERE invoice_no='$invoice_number' ");
+                          $resultm->bindParam(':userid', $res);
+                          $resultm->execute();
+                          for($i=0; $row12 = $resultm->fetch(); $i++){
+                          $total_bill2 = $row12['sum(price)'];
+                          }
+
 
 					  ?>
 
@@ -678,9 +720,8 @@ $total_bill2=0;
 
 					   <td><span class="badge bg-green"><i class="fa fa-clock-o"></i> <?php echo $row['type']; ?></span></td>
 
-					  <td>
-						<?php // echo $total_bill2; ?></td>
-            <?php // echo $advance; ?></td>
+					  <td><?php  echo $total_bill2; ?></td>
+           <td> <?php  echo $advance; ?></td>
 
                   </tr>
                   <?php } ?>
