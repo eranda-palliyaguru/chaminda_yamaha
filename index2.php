@@ -389,7 +389,8 @@ else{
                     <th>Mileage</th>
                     <th>Time</th>
             <th>Type</th>
-          <th>Profile</th>
+          <th>Bill total</th>
+          <th>Advance</th>
 
                   </tr>
                   </thead>
@@ -399,6 +400,7 @@ else{
         $result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
+          $now_job_id=$row['id'];
           $date=$row['date'];
           $ramp=$row['ramp'];
 
@@ -457,6 +459,24 @@ else{
         $idi=$row1['customer_id'];
         }
 
+$advance=0;
+
+        $resultm = $db->prepare("SELECT * FROM sales WHERE job_no='$now_job_id' ");
+        $resultm->bindParam(':userid', $res);
+        $resultm->execute();
+        for($i=0; $row12 = $resultm->fetch(); $i++){
+        $invoice_number = $row12['invoice_number'];
+        $advance = $row12['advance'];
+        }
+
+        $total_bill2=0;
+
+        $resultm = $db->prepare("SELECT sum(price) FROM sales_list WHERE invoice_no='$invoice_number' ");
+        $resultm->bindParam(':userid', $res);
+        $resultm->execute();
+        for($i=0; $row12 = $resultm->fetch(); $i++){
+        $total_bill2 = $row12['sum(price)'];
+        }
             ?>
 
                   <tr>
@@ -491,9 +511,8 @@ else{
 
              <td><span class="badge bg-green"><i class="fa fa-clock-o"></i> <?php echo $row['type']; ?></span></td>
 
-            <td>
-              <a href="profile.php?id=<?php echo $idi; ?>" >
-            <button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
+            <td><?php echo $total_bill2; ?></td>
+            <td><?php echo $advance; ?></td>
 
                   </tr>
                   <?php } ?>
@@ -532,7 +551,8 @@ else{
                     <th>Mileage</th>
                     <th>Time</th>
 					  <th>Type</th>
-					<th>Profile</th>
+					<th>Bill Total</th>
+          <th>Advance</th>
 
                   </tr>
                   </thead>
@@ -543,6 +563,7 @@ else{
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
 					$date=$row['date'];
+          $now_job_id=$row['id'];
 					$ramp=$row['ramp'];
 
 
@@ -599,6 +620,23 @@ else{
                 for($i=0; $row1 = $result1->fetch(); $i++){
 				$idi=$row1['customer_id'];
 				}
+$advance=0;
+        $resultm = $db->prepare("SELECT * FROM sales WHERE job_no='$now_job_id' ");
+    		$resultm->bindParam(':userid', $res);
+    		$resultm->execute();
+    		for($i=0; $row12 = $resultm->fetch(); $i++){
+    		$invoice_number = $row12['invoice_number'];
+          $advance = $row12['advance'];
+    		}
+
+$total_bill2=0;
+
+        $resultm = $db->prepare("SELECT sum(price) FROM sales_list WHERE invoice_no='$invoice_number' ");
+        $resultm->bindParam(':userid', $res);
+        $resultm->execute();
+        for($i=0; $row12 = $resultm->fetch(); $i++){
+        $total_bill2 = $row12['sum(price)'];
+        }
 
 					  ?>
 
@@ -635,8 +673,8 @@ else{
 					   <td><span class="badge bg-green"><i class="fa fa-clock-o"></i> <?php echo $row['type']; ?></span></td>
 
 					  <td>
-						  <a href="profile.php?id=<?php echo $idi; ?>" >
-					  <button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
+						<?php echo $total_bill2; ?></td>
+            <?php echo $advance; ?></td>
 
                   </tr>
                   <?php } ?>
