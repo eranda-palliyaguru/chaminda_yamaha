@@ -486,12 +486,8 @@ $advance=0;
 
              <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
-            <td><?php if($idi>1){ ?>
-              <a href="profile.php?id=<?php echo $idi; ?>" >
-            <button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a>
-              <?php }else{ ?>
-
-              <?php } ?></td>
+             <?php echo $total_bill2; ?></td>
+             <?php echo $advance; ?></td>
 
                   </tr>
                   <?php }
@@ -647,12 +643,8 @@ $total_bill2=0;
 
 					   <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
-					  <td><?php if($idi>1){ ?>
-						  <a href="profile.php?id=<?php echo $idi; ?>" >
-					  <button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a>
-						  <?php }else{ ?>
-
-						  <?php } ?></td>
+             <?php echo $total_bill2; ?></td>
+             <?php echo $advance; ?></td>
 
                   </tr>
                   <?php }
