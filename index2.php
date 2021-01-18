@@ -486,8 +486,8 @@ $advance=0;
 
              <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
-             <?php echo $total_bill2; ?></td>
-             <?php echo $advance; ?></td>
+             <td><?php echo $total_bill2; ?></td>
+             <td><?php echo $advance; ?></td>
 
                   </tr>
                   <?php }
@@ -643,8 +643,8 @@ $total_bill2=0;
 
 					   <td><span class="badge bg-<?php echo $color_ramp;?>"><?php echo $info;?></span></td>
 
-             <?php echo $total_bill2; ?></td>
-             <?php echo $advance; ?></td>
+             <td><?php echo $total_bill2; ?></td>
+             <td><?php echo $advance; ?></td>
 
                   </tr>
                   <?php }
